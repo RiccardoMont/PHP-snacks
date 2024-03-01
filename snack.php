@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /*SNACK 1
 Creiamo un array contenente le partite di basket di un’ipotetica tappa del calendario. Ogni array avrà una squadra di casa e una squadra ospite, punti fatti dalla squadra di casa e punti fatti dalla squadra ospite. Stampiamo a schermo tutte le partite con questo schema:
@@ -84,7 +84,7 @@ $posts = [
 
 foreach ($posts as $date => $value) {
     echo $date . '<br>';
-    
+
     foreach ($value as $post) {
         echo $post['title'] . ' ' . $post['author'] . ' ' . $post['text'] . '<br>';
     }
@@ -95,14 +95,12 @@ foreach ($posts as $date => $value) {
 
 $numeri = [];
 
-while (count($numeri) < 15){
+while (count($numeri) < 15) {
 
     $rndmNumber = rand(0, 100);
-    if(!in_array($rndmNumber, $numeri)){
-    array_push($numeri, $rndmNumber);
+    if (!in_array($rndmNumber, $numeri)) {
+        array_push($numeri, $rndmNumber);
     }
-
-
 }
 
 var_dump($numeri);
@@ -118,16 +116,87 @@ Sono organismi eutelici (hanno un numero di cellule costante durante il corso de
 Possono vivere da 3 mesi fino a 2 anni, a meno che non entrino in stato dormiente (in tal caso il loro orologio biologico si sospende, potendo rimanere in tale stato anche per decine di anni).';
 
 $paragrafetti = explode('.', $paragrafone);
-foreach($paragrafetti as $paragrafo){
-echo $paragrafo . '<br>';
+foreach ($paragrafetti as $paragrafo) {
+    echo $paragrafo . '<br>';
 };
 
+/*SNACK 6
+Utilizzare questo array: https://pastebin.com/CkX3680A. Stampiamo il nostro array mettendo gli insegnanti in un rettangolo grigio e i PM in un rettangolo verde.*/
 
+$db = [
+    'teachers' => [
+        [
+            'name' => 'Michele',
+            'lastname' => 'Papagni'
+        ],
+        [
+            'name' => 'Fabio',
+            'lastname' => 'Forghieri'
+        ]
+    ],
+    'pm' => [
+        [
+            'name' => 'Roberto',
+            'lastname' => 'Marazzini'
+        ],
+        [
+            'name' => 'Federico',
+            'lastname' => 'Pellegrini'
+        ]
+    ]
+];
 
+/*SNACK 7
+Creare un array contenente qualche alunno di un’ipotetica classe. Ogni alunno avrà Nome, Cognome e un array contenente i suoi voti scolastici. Stampare Nome, Cognome e la media dei voti di ogni alunno.*/
 
+$VA = [
+    [
+        'name' => 'Renato',
+        'lastname' => 'Carota',
+        [
+            'italiano' => rand(0, 10),
+            'matematica' => rand(0, 10),
+            'filosofia' => rand(0, 10),
+            'latino' => rand(0, 10),
+            'fisica' => rand(0, 10),
+            'arte' => rand(0, 10)
+        ]
+    ],
+    [
+        'name' => 'Ubalda',
+        'lastname' => 'Vegetale',
+        [
+            'italiano' => rand(0, 10),
+            'matematica' => rand(0, 10),
+            'filosofia' => rand(0, 10),
+            'latino' => rand(0, 10),
+            'fisica' => rand(0, 10),
+            'arte' => rand(0, 10)
+        ]
+    ],
+    [
+        'name' => 'Cremenzio',
+        'lastname' => 'Radicchio',
+        [
+            'italiano' => rand(0, 10),
+            'matematica' => rand(0, 10),
+            'filosofia' => rand(0, 10),
+            'latino' => rand(0, 10),
+            'fisica' => rand(0, 10),
+            'arte' => rand(0, 10)
+        ]
+    ]
 
+];
 
+foreach ($VA as $alunno) {
 
+    $result = array_sum($alunno[0]) / count($alunno[0]);
+    
+
+    echo $alunno['name'] . ' ' . $alunno['lastname'] . ' ' . 'ha una media di:' . ' ' . round($result, 1) . '<br>' ;   
+    var_dump($alunno[0]);
+};
 
 ?>
 
@@ -139,15 +208,30 @@ echo $paragrafo . '<br>';
     <title>Document</title>
 </head>
 <body>
-
-<?php foreach ($partite as $partita){ ?>
-
-    <p>
-    <span><?php echo $partita['home'] ?></span> - <span><?php echo $partita['guest'] ?></span> | <span><?php echo $partita['home_score'] ?>:<span><?php echo $partita['guest_score'] ?>
-    </p>
-    
-
-<?php } ?>
-    
+    <?php foreach ($partite as $partita) { ?>
+        <p>
+            <span><?php echo $partita['home'] ?></span> - <span><?php echo $partita['guest'] ?></span> | <span><?php echo $partita['home_score'] ?>:<span><?php echo $partita['guest_score'] ?>
+        </p>
+    <?php } ?>
+    <?php foreach ($db as $professions => $tipo) { ?>
+        <?php if ($professions == 'teachers') { ?>
+            <div style="border: 10px solid grey">
+                <?php foreach ($tipo as $worker) {
+                    foreach ($worker as $key => $name) { ?>
+                        <p><?php echo $name ?></p>
+                    <?php } ?>
+                <?php } ?>
+            </div>
+        <?php } ?>
+        <?php if ($professions == 'pm') { ?>
+            <div style="border: 10px solid green">
+                <?php foreach ($tipo as $worker) {
+                    foreach ($worker as $key => $name) { ?>
+                        <p><?php echo $name ?></p>
+                    <?php } ?>
+                <?php } ?>
+            <?php } ?>
+            </div>
+        <?php } ?>
 </body>
 </html>
