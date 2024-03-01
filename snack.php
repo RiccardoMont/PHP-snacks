@@ -90,14 +90,6 @@ foreach ($posts as $date => $value) {
     }
 };
 
-
-
-
-
-
-
-
-
 /* SNACK 4
  Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta*/
 
@@ -114,6 +106,28 @@ while (count($numeri) < 15){
 }
 
 var_dump($numeri);
+
+
+/*SNACK 5
+Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi. Ogni punto un nuovo paragrafo.*/
+
+$paragrafone = 'Le dimensioni lineari degli adulti possono variare da meno di 0,1 mm a 1,5 mm. In inglese sono detti "water bears", ossia \"orsi d\'acqua\", e \"moss piglets\", cioè, approssimativamente, \"maialini del muschio\". Le specie marine sono incolori o bianco-grigiastre, mentre quelle terrestri o d\'acqua dolce possono essere di vari colori, ad esempio arancioni, rosa, gialle, verdi o nere.
+
+Sono organismi eutelici (hanno un numero di cellule costante durante il corso della vita; gli individui possono accrescersi solo per volume e non per mitosi[3]). Il corpo, approssimativamente cilindrico, è costituito dal capo e da quattro metameri, ciascuno dei quali porta un paio di zampe che in molte specie marine sono parzialmente retrattili con un meccanismo telescopico. Alle estremità delle zampe vi è un numero variabile di unghie o dita, generalmente compreso tra 4 e 8. Raramente le unghie possono ridursi o mancare del tutto. Il corpo è rivestito da una sottile cuticola extracellulare elastica, formata anche da chitina[senza fonte].
+
+Possono vivere da 3 mesi fino a 2 anni, a meno che non entrino in stato dormiente (in tal caso il loro orologio biologico si sospende, potendo rimanere in tale stato anche per decine di anni).';
+
+$paragrafetti = explode('.', $paragrafone);
+foreach($paragrafetti as $paragrafo){
+echo $paragrafo . '<br>';
+};
+
+
+
+
+
+
+
 
 ?>
 
